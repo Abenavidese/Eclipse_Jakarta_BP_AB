@@ -1,11 +1,22 @@
 package ec.edu.ups.ppw.biblioteca.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import ec.edu.ups.ppw.biblioteca.Libros;
+import ec.edu.ups.ppw.biblioteca.Rol;
+import ec.edu.ups.ppw.biblioteca.Usuario;
 import ec.edu.ups.ppw.biblioteca.dao.LibroDAO;
+import ec.edu.ups.ppw.biblioteca.dao.PrestamoDAO;
+import ec.edu.ups.ppw.biblioteca.dao.RolDAO;
+import ec.edu.ups.ppw.biblioteca.dao.UsuarioDAO;
+import ec.edu.ups.ppw.enums.RolNombre;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import jakarta.inject.Inject;
+
+
 @Startup
 @Singleton
 public class Inicio {
@@ -15,9 +26,48 @@ public class Inicio {
 	    private LibroDAO daoLibro1;
 	 @Inject
 	    private LibroDAO daoLibro2;
+	 
+	    @Inject
+	    private UsuarioDAO daoUsuario;
+	    
+	    @Inject
+	    private RolDAO daoRol;
+	    
+		@Inject
+		private PrestamoDAO daoPrestamo;
 
 	    @PostConstruct
 	    public void init() {
+	    	
+	        // Crear y persistir roles
+	        Rol rolAdmin = new Rol(RolNombre.ROLE_ADMIN);
+	        daoRol.insert(rolAdmin);
+	        
+	        Rol rolUser = new Rol(RolNombre.ROLE_USER);
+	        daoRol.insert(rolUser);
+		    	
+	        // Crear un conjunto de roles
+	        Set<Rol> rolesAdmin = new HashSet<>();
+	        rolesAdmin.add(rolAdmin);
+
+	        Set<Rol> rolesUser = new HashSet<>();
+	        rolesUser.add(rolUser);
+
+	        // Crear y persistir usuarios
+	        Usuario usuarioAdmin = new Usuario();
+	        usuarioAdmin.setUsername("adminbiblio");
+	        usuarioAdmin.setPassword("adminbiblio");
+	        usuarioAdmin.setEmail("admin@gmail.com");
+	        usuarioAdmin.setRoles(rolesAdmin);
+	        daoUsuario.insert(usuarioAdmin);
+
+	        Usuario usuarioUser = new Usuario();
+	        usuarioUser.setUsername("ussr");
+	        usuarioUser.setPassword("ussr");
+	        usuarioUser.setEmail("user@gmail.com");
+	        usuarioUser.setRoles(rolesUser);
+	        daoUsuario.insert(usuarioUser);
+
 	        // Libro 1
 	        Libros libro1 = new Libros();
 	        libro1.setAutor("Gabriel García Márquez");
