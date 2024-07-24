@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+    <title>Login</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+</h:head>
+
+<h:body>
+    <div class="LoginBox">
+        <img src="admin.png" class="user" alt="User icon" />
+        <h2>Login</h2>
+        <h:form id="loginForm">
+            <div class="form-group">
+                <h:outputLabel for="username" value="Username:" />
+                <h:inputText id="username" value="#{loginBean.username}" required="true" />
+            </div>
+            
+            <div class="form-group">
+                <h:outputLabel for="password" value="Password:" />
+                <h:inputSecret id="password" value="#{loginBean.password}" required="true" />
+            </div>
+            
+            <h:commandButton styleClass="submit-btn" value="Login" action="#{loginBean.login}" />
+        </h:form>
+        
+        <h:outputLink value="signup.xhtml" styleClass="sign-up-link">¿No tienes cuenta? Regístrate aquí</h:outputLink>
+    </div>
+</h:body>
+
+</html>
