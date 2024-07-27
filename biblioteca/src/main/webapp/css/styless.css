@@ -1,0 +1,66 @@
+@charset "ISO-8859-1";
+/* Estilos generales para Login y SignUp */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.LoginBox, .SignUpBox {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+h:outputLabel {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+h:inputText, h:inputSecret {
+    width: calc(100% - 22px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.sign-up-link {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.sign-up-link:hover {
+    text-decoration: underline;
+}
