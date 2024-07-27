@@ -20,12 +20,14 @@ public class Prestamo {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="pre_id")
+    @Column(name="pres_id")
     private int prestamoId;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="fecha_prestamo")
-    private Date fechaPrestamo;
+    @Column(name="fecha_inicio")
+    private Date fechaInicio;
+    
+   
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="fecha_devolucion")
@@ -33,10 +35,10 @@ public class Prestamo {
 
     @ManyToOne
     @JoinColumn(name="lib_id")
-    private Libros libros;
+    private Libros libro;
 
     @ManyToOne
-    @JoinColumn(name="user_ID")
+    @JoinColumn(name="usu_id")
     private Usuario usuario;
 
     // Getters y setters
@@ -48,12 +50,12 @@ public class Prestamo {
         this.prestamoId = prestamoId;
     }
 
-    public Date getFechaPrestamo() {
-        return fechaPrestamo;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFechaPrestamo(Date fechaPrestamo) {
-        this.fechaPrestamo = fechaPrestamo;
+    public void setFechaInicio(Date fechaPrestamo) {
+        this.fechaInicio = fechaPrestamo;
     }
 
     public Date getFechaDevolucion() {
@@ -64,17 +66,15 @@ public class Prestamo {
         this.fechaDevolucion = fechaDevolucion;
     }
 
+    public Libros getLibro() {
+        return libro;
+    }
 
+    public void setLibro(Libros libro) {
+        this.libro = libro;
+    }
 
-    public Libros getLibros() {
-		return libros;
-	}
-
-	public void setLibros(Libros libros) {
-		this.libros = libros;
-	}
-
-	public Usuario getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
@@ -82,9 +82,4 @@ public class Prestamo {
         this.usuario = usuario;
     }
 
-    @Override
-    public String toString() {
-        return "Prestamo [prestamoId=" + prestamoId + ", fechaPrestamo=" + fechaPrestamo + ", fechaDevolucion="
-                + fechaDevolucion + ", libros=" + libros.getLibroId() + ", usuario=" + usuario.getId() + "]";
-    }
 }

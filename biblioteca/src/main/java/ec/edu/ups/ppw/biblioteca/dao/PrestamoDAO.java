@@ -28,7 +28,7 @@ public class PrestamoDAO {
 	        em.remove(prestamo);
 	        System.out.println("Eliminado");
 	    } else {
-	        throw new Exception("No se puede eliminar el prestamo. Prestamo con id " + id + " no encontrado.");
+	        throw new Exception("No se puede eliminar, prestamo con id " + id + " no encontrado.");
 	    }
 	}
 	
