@@ -1,19 +1,22 @@
 @charset "ISO-8859-1";
 /* Estilos generales para Login y SignUp */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url(images/background.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 
 .LoginBox, .SignUpBox {
-    width: 300px;
+    width: 400px;
     margin: 100px auto;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 form {
@@ -21,20 +24,20 @@ form {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 h2 {
     margin-bottom: 20px;
 }
 
-h:outputLabel {
+.form-label {
     display: block;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-h:inputText, h:inputSecret {
+h\:inputText, h\:inputSecret {
     width: calc(100% - 22px);
     padding: 8px;
     border: 1px solid #ccc;
@@ -63,4 +66,21 @@ h:inputText, h:inputSecret {
 
 .sign-up-link:hover {
     text-decoration: underline;
+}
+
+
+.submit-btn-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.submit-btn-link:hover {
+    background-color: #0056b3;
 }
