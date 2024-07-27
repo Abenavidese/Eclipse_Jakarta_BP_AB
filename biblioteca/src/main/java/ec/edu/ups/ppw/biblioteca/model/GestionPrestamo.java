@@ -9,7 +9,6 @@ import jakarta.inject.Inject;
 
 @Stateless
 public class GestionPrestamo {
-
 	@Inject
 	private PrestamoDAO daoPrestamo;
 	
