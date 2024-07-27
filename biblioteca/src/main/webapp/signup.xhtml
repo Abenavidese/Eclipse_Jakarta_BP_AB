@@ -6,31 +6,33 @@
 
 <h:head>
     <title>Sign Up</title>
-    <link href="css/styles.css" rel="stylesheet" type="text/css" />
-</h:head>
+       <link href="css/styless.css" type="text/css" rel="stylesheet"/>
 
-<h:head>
-    <title>Sign Up</title>
-    <link href="css/styles.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
     <div class="SignUpBox">
+            <img src="images/signupIcon.png" class="user" alt="Sign-up icon" />
+    
         <h2>Registro de Usuario</h2>
         <h:form id="signupForm">
+            <h:messages globalOnly="true" style="color: red;" />
             <div class="form-group">
                 <h:outputLabel for="username" value="Username:" />
-                <h:inputText id="username" value="#{signupBean.username}" required="true" />
+                <h:inputText id="username" value="#{signupBean.username}" required="true" requiredMessage="Username is required" />
+                <h:message for="username" style="color: red;" />
             </div>
             
             <div class="form-group">
                 <h:outputLabel for="email" value="Email:" />
-                <h:inputText id="email" value="#{signupBean.email}" required="true" />
+                <h:inputText id="email" value="#{signupBean.email}" required="true" requiredMessage="Email is required" />
+                <h:message for="email" style="color: red;" />
             </div>
             
             <div class="form-group">
                 <h:outputLabel for="password" value="Password:" />
-                <h:inputSecret id="password" value="#{signupBean.password}" required="true" />
+                <h:inputSecret id="password" value="#{signupBean.password}" required="true" requiredMessage="Password is required" />
+                <h:message for="password" style="color: red;" />
             </div>
             
             <h:commandButton styleClass="submit-btn" value="Sign up" action="#{signupBean.signup}" />
