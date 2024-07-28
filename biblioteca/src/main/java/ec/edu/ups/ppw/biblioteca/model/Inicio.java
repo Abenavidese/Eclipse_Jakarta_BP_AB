@@ -1,9 +1,11 @@
 package ec.edu.ups.ppw.biblioteca.model;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 import ec.edu.ups.ppw.biblioteca.Libros;
+import ec.edu.ups.ppw.biblioteca.Prestamo;
 import ec.edu.ups.ppw.biblioteca.Rol;
 import ec.edu.ups.ppw.biblioteca.Usuario;
 import ec.edu.ups.ppw.biblioteca.dao.LibroDAO;
@@ -11,6 +13,7 @@ import ec.edu.ups.ppw.biblioteca.dao.PrestamoDAO;
 import ec.edu.ups.ppw.biblioteca.dao.RolDAO;
 import ec.edu.ups.ppw.biblioteca.dao.UsuarioDAO;
 import ec.edu.ups.ppw.enums.RolNombre;
+import ec.ups.edu.ppw.util.DateGenerator;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
@@ -35,6 +38,8 @@ public class Inicio {
 	    
 		@Inject
 		private PrestamoDAO daoPrestamo;
+		
+		
 
 	    @PostConstruct
 	    public void init() {
@@ -78,7 +83,21 @@ public class Inicio {
 	        libro1.setPortada("https://th.bing.com/th/id/OIP.i1l4x9xyOWqAe0fHkss9NwHaLQ?w=202&h=308&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro1.setDisponibilidad(true);
 	        daoLibro.insert(libro1);
+	        
+	        
+	        // Crear préstamo
+	        Prestamo prestamo = new Prestamo();
+	        prestamo.setUsuario(usuarioAdmin);
+	        prestamo.setLibro(libro1);
+	        Date fechaPrestamo = DateGenerator.createDate(2023, 7, 18);
+	        Date fechaDevolucion = DateGenerator.createDate(2023, 7, 25);
+	        prestamo.setFechaInicio(fechaPrestamo);
+	        prestamo.setFechaDevolucion(fechaDevolucion);
 
+	        // Insertar préstamo
+	        daoPrestamo.insert(prestamo);
+
+	        System.out.println("Préstamo creado: " + prestamo);
 	        // Libro 2
 	        Libros libro2 = new Libros();
 	        libro2.setAutor("J. K. Rowling");

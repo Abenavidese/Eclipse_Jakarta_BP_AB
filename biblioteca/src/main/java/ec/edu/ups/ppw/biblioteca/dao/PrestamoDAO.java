@@ -9,6 +9,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 
 @Stateless
+
 public class PrestamoDAO {
 
 	@PersistenceContext
