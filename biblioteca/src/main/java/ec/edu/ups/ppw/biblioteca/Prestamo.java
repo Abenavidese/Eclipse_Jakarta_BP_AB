@@ -2,6 +2,8 @@ package ec.edu.ups.ppw.biblioteca;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +18,7 @@ import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name="TBL_PRESTAMO")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Prestamo {
 
 	@Id
@@ -25,7 +28,7 @@ public class Prestamo {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="fecha_inicio")
-    private Date fechaInicio;
+    private Date fechaPrestamo;
     
    
 
@@ -51,11 +54,11 @@ public class Prestamo {
     }
 
     public Date getFechaInicio() {
-        return fechaInicio;
+        return fechaPrestamo;
     }
 
     public void setFechaInicio(Date fechaPrestamo) {
-        this.fechaInicio = fechaPrestamo;
+        this.fechaPrestamo = fechaPrestamo;
     }
 
     public Date getFechaDevolucion() {
