@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import ec.edu.ups.ppw.biblioteca.Libros;
 import ec.edu.ups.ppw.biblioteca.Rol;
 import ec.edu.ups.ppw.biblioteca.Usuario;
 import ec.edu.ups.ppw.biblioteca.dao.UsuarioDAO;
@@ -23,18 +22,24 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-
+/**
+ * Servicio RESTful para la autenticación y la gestión de usuarios.
+ * Proporciona endpoints para validar credenciales y listar usuarios.
+ */
 @Path("/auth")
 public class LoginServicio {
-	
-	
 
-	@Inject
-	private GestionUsuario gUsuarios;
+    @Inject
+    private GestionUsuario gUsuarios;
 
     private static final String SECRET_KEY = "Miclave12341111AleMiclave12341111Ale123213322Miclave12341111AleMiclave12341111Ale123213322";
     private static final long TOKEN_VALIDITY = 900000; // 15 minutos en milisegundos
 
+    /**
+     * Valida las credenciales del usuario y genera un token JWT si son correctas.
+     * @param usuario El usuario con las credenciales a validar.
+     * @return Una respuesta HTTP con el token JWT y los roles del usuario o un mensaje de error.
+     */
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -57,14 +62,12 @@ public class LoginServicio {
                     .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                     .compact();
 
-
-
             // Construir el JSON de respuesta con el token y los roles
             JsonObject json = Json.createObjectBuilder()
                                   .add("JWT", jwt)
                                   .add("roles", rolesString)
                                   .build();
-            
+
             // Imprimir el token en la consola
             System.out.println("Generated JWT: " + json);
             System.out.println("Generated JWT: " + jwt);
@@ -76,14 +79,14 @@ public class LoginServicio {
         // Si las credenciales no son válidas, retornar UNAUTHORIZED
         return Response.status(Response.Status.UNAUTHORIZED).build();
     }
-    
 
-    
-
-	@GET
-	@Produces("application/json")
-	public List<Usuario> list(){
-		List<Usuario> usuarios = gUsuarios.getUsuarios();
-		return usuarios;
-	}
+    /**
+     * Lista todos los usuarios.
+     * @return Una lista de todos los usuarios.
+     */
+    @GET
+    @Produces("application/json")
+    public List<Usuario> list() {
+        return gUsuarios.getUsuarios();
+    }
 }

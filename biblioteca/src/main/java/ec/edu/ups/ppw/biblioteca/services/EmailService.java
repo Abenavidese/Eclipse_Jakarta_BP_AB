@@ -11,13 +11,20 @@ import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.enterprise.context.ApplicationScoped;
 
+/**
+ * Servicio de envío de correos electrónicos.
+ * Proporciona funcionalidad para enviar correos electrónicos usando el protocolo SMTP.
+ */
 @ApplicationScoped
 public class EmailService {
-	
 
     private final String username = "correoelectronicoele@gmail.com";
     private final String password = "zxhr iwxn fzpt oqnp";  // Contraseña de aplicación
 
+    /**
+     * Obtiene las propiedades de configuración para el servidor de correo.
+     * @return Las propiedades de configuración para el servidor de correo.
+     */
     private Properties getMailProperties() {
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -27,6 +34,13 @@ public class EmailService {
         return props;
     }
 
+    /**
+     * Envía un correo electrónico.
+     * @param to La dirección de correo del destinatario.
+     * @param subject El asunto del correo.
+     * @param body El contenido del correo.
+     * @throws MessagingException Si ocurre un error al enviar el correo.
+     */
     public void sendEmail(String to, String subject, String body) throws MessagingException {
         Session session = Session.getInstance(getMailProperties(), new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {

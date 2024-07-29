@@ -2,7 +2,6 @@ package ec.edu.ups.ppw.bean;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import ec.edu.ups.ppw.biblioteca.Rol;
 import ec.edu.ups.ppw.biblioteca.Usuario;
 import ec.edu.ups.ppw.biblioteca.dao.RolDAO;
@@ -13,6 +12,10 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.transaction.Transactional;
 
+/**
+ * Bean de gestión de registro de usuarios.
+ * Maneja el proceso de registro de nuevos usuarios.
+ */
 @Named
 @RequestScoped
 public class SignupBean {
@@ -27,8 +30,12 @@ public class SignupBean {
     @EJB
     private RolDAO rolDAO;
 
-    // Getters and Setters for username, email, and password
-
+    /**
+     * Método de registro de usuarios.
+     * Crea un nuevo usuario con el rol de usuario estándar y lo inserta en la base de datos.
+     * Redirige al login después del registro exitoso.
+     * @return La página a la que redirigir después del registro.
+     */
     @Transactional
     public String signup() {
         try {
@@ -60,27 +67,52 @@ public class SignupBean {
         }
     }
 
-    // Getters and setters for username, email, and password
+    // Getters y setters para username, email, y password
+
+    /**
+     * Obtiene el nombre de usuario.
+     * @return El nombre de usuario.
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Establece el nombre de usuario.
+     * @param username El nombre de usuario.
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * Obtiene el correo electrónico del usuario.
+     * @return El correo electrónico del usuario.
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Establece el correo electrónico del usuario.
+     * @param email El correo electrónico del usuario.
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * Obtiene la contraseña del usuario.
+     * @return La contraseña del usuario.
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Establece la contraseña del usuario.
+     * @param password La contraseña del usuario.
+     */
     public void setPassword(String password) {
         this.password = password;
     }

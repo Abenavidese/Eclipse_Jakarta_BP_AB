@@ -91,7 +91,7 @@ public class Inicio {
 	        prestamo.setLibro(libro1);
 	        Date fechaPrestamo = DateGenerator.createDate(2023, 7, 18);
 	        Date fechaDevolucion = DateGenerator.createDate(2023, 7, 25);
-	        prestamo.setFechaInicio(fechaPrestamo);
+	        prestamo.setFechaPrestamo(fechaPrestamo);
 	        prestamo.setFechaDevolucion(fechaDevolucion);
 
 	        // Insertar préstamo
