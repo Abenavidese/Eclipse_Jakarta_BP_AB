@@ -49,4 +49,22 @@ public class GestionPrestamo {
             daoPrestamo.delete(id);
         }
     }
+    
+    
+    public void returnPrestamo(int id) throws Exception {
+        Prestamo prestamo = daoPrestamo.read(id);
+        if (prestamo == null) {
+            throw new Exception("Prestamo no existe");
+        }
+        prestamo.setDevuelto(true);
+        daoPrestamo.update(prestamo);
+
+        // Actualizar la disponibilidad del libro
+        prestamo.getLibro().setDisponibilidad(true);
+        daoPrestamo.update(prestamo.getLibro());
+    }
+    
+    
+    
+
 }

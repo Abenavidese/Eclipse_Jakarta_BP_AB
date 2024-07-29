@@ -43,6 +43,9 @@ public class Prestamo {
     @ManyToOne
     @JoinColumn(name="usu_id")
     private Usuario usuario;
+    
+    @Column(name="devuelto")
+    private boolean devuelto;
 
     // Getters y setters
     public int getPrestamoId() {
@@ -83,6 +86,14 @@ public class Prestamo {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+    
+    public boolean isDevuelto() {
+        return devuelto;
+    }
+
+    public void setDevuelto(boolean devuelto) {
+        this.devuelto = devuelto;
     }
 
 }

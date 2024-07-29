@@ -1,6 +1,8 @@
 package ec.edu.ups.ppw.biblioteca.dao;
 
 import java.util.List;
+
+import ec.edu.ups.ppw.biblioteca.Libros;
 import ec.edu.ups.ppw.biblioteca.Prestamo;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
@@ -12,6 +14,11 @@ public class PrestamoDAO {
 
     @PersistenceContext
     private EntityManager em;
+    
+    
+    public void update(Libros libros) {
+        em.merge(libros);
+    }
 
     public void insert(Prestamo prestamo) {
         em.persist(prestamo);
