@@ -4,6 +4,7 @@ import java.util.List;
 import ec.edu.ups.ppw.biblioteca.Prestamo;
 import ec.edu.ups.ppw.biblioteca.model.GestionPrestamo;
 import jakarta.inject.Inject;
+import jakarta.mail.MessagingException;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -19,12 +20,32 @@ public class PrestamoService {
     @Inject
     private GestionPrestamo gPrestamos;
 
+    @Inject
+    private EmailService emailService;
+
     @POST
     @Produces("application/json")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(Prestamo prestamo) {
         try {
             gPrestamos.createPrestamo(prestamo);
+            
+            // Enviar correo de confirmación
+            String email = prestamo.getUsuario().getEmail();
+            String subject = "Préstamo de Libro Confirmado";
+            String body = "Estimado " + prestamo.getUsuario().getUsername() + ",\n\n"
+                    + "El libro \"" + prestamo.getLibro().getTitulo() + "\" ha sido prestado exitosamente.\n"
+                    + "Fecha de Préstamo: " + prestamo.getFechaInicio() + "\n"
+                    + "Fecha de Devolución: " + prestamo.getFechaDevolucion() + "\n\n"
+                    + "Gracias,\nTu Biblioteca";
+            
+            try {
+                emailService.sendEmail(email, subject, body);
+            } catch (MessagingException e) {
+                e.printStackTrace();
+                return Response.status(503).entity(new Respuesta(Respuesta.ERROR, "Error al enviar correo")).build();
+            }
+
             return Response.ok(prestamo).build();
         } catch (Exception e) {
             e.printStackTrace();

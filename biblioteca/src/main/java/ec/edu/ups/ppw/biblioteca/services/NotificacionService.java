@@ -5,17 +5,23 @@ import java.util.List;
 
 import ec.edu.ups.ppw.biblioteca.Prestamo;
 import ec.edu.ups.ppw.biblioteca.dao.PrestamoDAO;
+import jakarta.ejb.Schedule;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
+import jakarta.inject.Inject;
+import jakarta.mail.MessagingException;
 
+@Singleton
+@Startup
 public class NotificacionService {
 
-    private PrestamoDAO prestamoDAO; // Tu DAO de préstamos
+    @Inject
+    private PrestamoDAO prestamoDAO;
+
+    @Inject
     private EmailService emailService;
 
-    public NotificacionService(PrestamoDAO prestamoDAO, EmailService emailService) {
-        this.prestamoDAO = prestamoDAO;
-        this.emailService = emailService;
-    }
-
+    @Schedule(hour = "0", minute = "0", second = "0", persistent = false)
     public void sendReturnReminder() {
         List<Prestamo> prestamos = prestamoDAO.getAll();
         for (Prestamo prestamo : prestamos) {
@@ -27,13 +33,16 @@ public class NotificacionService {
                         + "antes del " + prestamo.getFechaDevolucion() + ".\n\n"
                         + "Gracias,\nTu Biblioteca";
 
-                emailService.sendEmail(email, subject, body);
+                try {
+                    emailService.sendEmail(email, subject, body);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
     private boolean isReturnDateClose(Date fechaDevolucion) {
-        // Implementa la lógica para determinar si la fecha de devolución está próxima (por ejemplo, en los próximos 3 días)
         long diff = fechaDevolucion.getTime() - new Date().getTime();
         return diff <= 3 * 24 * 60 * 60 * 1000; // 3 días en milisegundos
     }

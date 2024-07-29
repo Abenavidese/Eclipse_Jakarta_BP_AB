@@ -62,7 +62,7 @@ public class Inicio {
 	        Usuario usuarioAdmin = new Usuario();
 	        usuarioAdmin.setUsername("adminbiblio");
 	        usuarioAdmin.setPassword("adminbiblio");
-	        usuarioAdmin.setEmail("admin@gmail.com");
+	        usuarioAdmin.setEmail("anthonybenavides2014@yahoo.com");
 	        usuarioAdmin.setRoles(rolesAdmin);
 	        daoUsuario.insert(usuarioAdmin);
 
