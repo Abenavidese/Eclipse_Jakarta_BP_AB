@@ -1,13 +1,16 @@
 package ec.edu.ups.ppw.biblioteca.services;
 
 import java.util.List;
+
 import ec.edu.ups.ppw.biblioteca.Prestamo;
 import ec.edu.ups.ppw.biblioteca.model.GestionPrestamo;
 import jakarta.inject.Inject;
 import jakarta.mail.MessagingException;
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
@@ -19,7 +22,6 @@ public class PrestamoService {
 
     @Inject
     private GestionPrestamo gPrestamos;
-
     @Inject
     private EmailService emailService;
 
@@ -29,7 +31,6 @@ public class PrestamoService {
     public Response create(Prestamo prestamo) {
         try {
             gPrestamos.createPrestamo(prestamo);
-            
             // Enviar correo de confirmación
             String email = prestamo.getUsuario().getEmail();
             String subject = "Préstamo de Libro Confirmado";
@@ -38,7 +39,7 @@ public class PrestamoService {
                     + "Fecha de Préstamo: " + prestamo.getFechaInicio() + "\n"
                     + "Fecha de Devolución: " + prestamo.getFechaDevolucion() + "\n\n"
                     + "Gracias,\nTu Biblioteca";
-            
+
             try {
                 emailService.sendEmail(email, subject, body);
             } catch (MessagingException e) {
@@ -57,10 +58,8 @@ public class PrestamoService {
     @Path("/{id}")
     @Produces("application/json")
     public Prestamo getPrestamoById(@PathParam("id") int id) {
-        Prestamo prestamo;
         try {
-            prestamo = gPrestamos.getPrestamo(id);
-            return prestamo;
+            return gPrestamos.getPrestamo(id);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -79,19 +78,20 @@ public class PrestamoService {
     public List<Prestamo> getPrestamosActivos() {
         return gPrestamos.getPrestamosActivos();
     }
-    
-    @POST
-    @Path("/devolver/{id}")
+
+    @DELETE
+    @Path("/{id}")
     @Produces("application/json")
-    public Response devolverPrestamo(@PathParam("id") int id) {
+    public Response deletePrestamo(@PathParam("id") int id) {
         try {
-            gPrestamos.returnPrestamo(id);
-            return Response.ok().build();
+            Prestamo prestamo = gPrestamos.getPrestamo(id);
+            gPrestamos.deletePrestamo(id);
+            prestamo.getLibro().setDisponibilidad(true); // Actualiza la disponibilidad del libro
+            gPrestamos.updatePrestamo(prestamo);
+            return Response.noContent().build();
         } catch (Exception e) {
             e.printStackTrace();
-            return Response.status(503).entity(new Respuesta(Respuesta.ERROR, "Error al procesar devolución")).build();
+            return Response.status(503).entity(new Respuesta(Respuesta.ERROR, "Error en BD")).build();
         }
     }
-    
-    
 }

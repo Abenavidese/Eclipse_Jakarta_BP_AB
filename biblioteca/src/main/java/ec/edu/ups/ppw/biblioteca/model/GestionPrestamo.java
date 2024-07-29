@@ -1,6 +1,7 @@
 package ec.edu.ups.ppw.biblioteca.model;
 
 import java.util.List;
+
 import ec.edu.ups.ppw.biblioteca.Prestamo;
 import ec.edu.ups.ppw.biblioteca.dao.PrestamoDAO;
 import jakarta.ejb.Stateless;
@@ -8,7 +9,6 @@ import jakarta.inject.Inject;
 
 @Stateless
 public class GestionPrestamo {
-
     @Inject
     private PrestamoDAO daoPrestamo;
 
@@ -21,10 +21,6 @@ public class GestionPrestamo {
 
     public List<Prestamo> getPrestamos() {
         return daoPrestamo.getAll();
-    }
-
-    public List<Prestamo> getPrestamosActivos() {
-        return daoPrestamo.getPrestamosActivos();
     }
 
     public void createPrestamo(Prestamo prestamo) throws Exception {
@@ -49,22 +45,11 @@ public class GestionPrestamo {
             daoPrestamo.delete(id);
         }
     }
-    
-    
-    public void returnPrestamo(int id) throws Exception {
-        Prestamo prestamo = daoPrestamo.read(id);
-        if (prestamo == null) {
-            throw new Exception("Prestamo no existe");
-        }
-        prestamo.setDevuelto(true);
-        daoPrestamo.update(prestamo);
 
-        // Actualizar la disponibilidad del libro
-        prestamo.getLibro().setDisponibilidad(true);
-        daoPrestamo.update(prestamo.getLibro());
+    public List<Prestamo> obtenerPrestamosActivos() {
+        return daoPrestamo.getPrestamosActivos();
     }
-    
-    
-    
-
+    public List<Prestamo> getPrestamosActivos() {
+        return daoPrestamo.getPrestamosActivos();
+    }
 }

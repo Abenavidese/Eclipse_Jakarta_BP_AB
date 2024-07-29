@@ -37,6 +37,14 @@ public class PrestamoDAO {
             throw new Exception("No se puede eliminar, prestamo con id " + id + " no encontrado.");
         }
     }
+    public void marcarComoDevuelto(int id) throws Exception {
+        Prestamo prestamo = this.read(id);
+        if (prestamo == null) {
+            throw new Exception("Prestamo no existe");
+        }
+        prestamo.setDevuelto(true);
+        em.merge(prestamo);
+    }
 
     public Prestamo read(int id) throws Exception {
         Prestamo prestamo = em.find(Prestamo.class, id);
