@@ -91,14 +91,14 @@ public class Inicio {
 	        prestamo.setLibro(libro1);
 	        Date fechaPrestamo = DateGenerator.createDate(2023, 7, 18);
 	        Date fechaDevolucion = DateGenerator.createDate(2023, 7, 25);
-	        prestamo.setFechaInicio(fechaPrestamo);
+	        prestamo.setFechaPrestamo(fechaPrestamo);
 	        prestamo.setFechaDevolucion(fechaDevolucion);
 
 	        // Insertar préstamo
 	        daoPrestamo.insert(prestamo);
 
 	        System.out.println("Préstamo creado: " + prestamo);
-	        // Libro 2
+	     // Libro 2
 	        Libros libro2 = new Libros();
 	        libro2.setAutor("J. K. Rowling");
 	        libro2.setDescripcion("La historia sigue las aventuras de un niño huérfano, quien descubre que es un mago y es invitado a asistir a la escuela de magia.");
@@ -107,6 +107,7 @@ public class Inicio {
 	        libro2.setTitulo("Harry Potter y la piedra filosofal");
 	        libro2.setPortada("https://th.bing.com/th/id/R.e1e28ac7a43986234f2167ee74279e2f?rik=45su2odF%2buCxSA&pid=ImgRaw&r=0");
 	        libro2.setDisponibilidad(false);
+	        libro2.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro2);
 
 	        // Libro 3
@@ -118,6 +119,7 @@ public class Inicio {
 	        libro3.setTitulo("El hobbit");
 	        libro3.setPortada("https://th.bing.com/th/id/OIP.Oj2WXQ_tBXGSZdAKdHTR9gHaJl?w=202&h=263&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro3.setDisponibilidad(true);
+	        libro3.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro3);
 
 	        // Libro 4
@@ -129,6 +131,7 @@ public class Inicio {
 	        libro4.setTitulo("1984");
 	        libro4.setPortada("https://th.bing.com/th/id/OIP.U9ur5_9eNAN-HEPjx5u8PAHaLH?w=202&h=306&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro4.setDisponibilidad(false);
+	        libro4.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro4);
 
 	        // Libro 5
@@ -140,6 +143,7 @@ public class Inicio {
 	        libro5.setTitulo("Orgullo y prejuicio");
 	        libro5.setPortada("https://th.bing.com/th/id/OIP.bf93-5WQMaWUDfqKc8QqZgHaKI?w=202&h=275&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro5.setDisponibilidad(true);
+	        libro5.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro5);
 
 	        // Libro 6
@@ -151,6 +155,7 @@ public class Inicio {
 	        libro6.setTitulo("El gran Gatsby");
 	        libro6.setPortada("https://th.bing.com/th/id/OIP.97jP8tZkHlOwI2aQ4J1aWgHaK3?w=202&h=296&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro6.setDisponibilidad(false);
+	        libro6.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro6);
 
 	        // Libro 7
@@ -162,6 +167,7 @@ public class Inicio {
 	        libro7.setTitulo("La ladrona de libros");
 	        libro7.setPortada("https://th.bing.com/th/id/OIP.HuXZ1aCkGg0-JnoQ4Q9lGgHaK-?w=202&h=299&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro7.setDisponibilidad(true);
+	        libro7.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro7);
 
 	        // Libro 8
@@ -173,6 +179,7 @@ public class Inicio {
 	        libro8.setTitulo("Matar a un ruiseñor");
 	        libro8.setPortada("https://th.bing.com/th/id/OIP.8P-E9mQbFgZiU-SZT5TWWwHaKI?w=202&h=275&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro8.setDisponibilidad(false);
+	        libro8.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro8);
 
 	        // Libro 9
@@ -184,6 +191,7 @@ public class Inicio {
 	        libro9.setTitulo("Guerra y paz");
 	        libro9.setPortada("https://th.bing.com/th/id/OIP.xX8kP0eQH-xO-sVP1PBw1gHaN4?w=202&h=358&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro9.setDisponibilidad(true);
+	        libro9.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro9);
 
 	        // Libro 10
@@ -195,6 +203,7 @@ public class Inicio {
 	        libro10.setTitulo("Por quién doblan las campanas");
 	        libro10.setPortada("https://th.bing.com/th/id/OIP.VYDRgS2T0bg4ndfZG6hPHwHaKO?w=202&h=276&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro10.setDisponibilidad(false);
+	        libro10.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro10);
 
 	        // Libro 11
@@ -206,6 +215,7 @@ public class Inicio {
 	        libro11.setTitulo("Mrs Dalloway");
 	        libro11.setPortada("https://th.bing.com/th/id/OIP.SI8wx0-PXjRNO5o5DqRl0gHaKe?w=202&h=286&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro11.setDisponibilidad(true);
+	        libro11.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro11);
 
 	        // Libro 12
@@ -217,6 +227,7 @@ public class Inicio {
 	        libro12.setTitulo("Cumbres borrascosas");
 	        libro12.setPortada("https://th.bing.com/th/id/OIP.7EUpSSWxM13rJ4xIVJNCAwHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro12.setDisponibilidad(false);
+	        libro12.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro12);
 
 	        // Libro 13
@@ -228,6 +239,7 @@ public class Inicio {
 	        libro13.setTitulo("El extranjero");
 	        libro13.setPortada("https://th.bing.com/th/id/OIP.61aK-3T_xO4ypKeh4oetOgHaKV?w=202&h=279&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro13.setDisponibilidad(true);
+	        libro13.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro13);
 
 	        // Libro 14
@@ -239,6 +251,7 @@ public class Inicio {
 	        libro14.setTitulo("El cuento de la criada");
 	        libro14.setPortada("https://th.bing.com/th/id/OIP.F2us-JYc9IzKwVlQG6iKbgHaK-?w=202&h=282&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro14.setDisponibilidad(false);
+	        libro14.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro14);
 
 	        // Libro 15
@@ -250,6 +263,7 @@ public class Inicio {
 	        libro15.setTitulo("El amor en los tiempos del cólera");
 	        libro15.setPortada("https://th.bing.com/th/id/OIP.2o4qVDbBjD6wWbFwVX_MyQHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro15.setDisponibilidad(true);
+	        libro15.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro15);
 
 	        // Libro 16
@@ -261,6 +275,7 @@ public class Inicio {
 	        libro16.setTitulo("Tokio blues (Norwegian Wood)");
 	        libro16.setPortada("https://th.bing.com/th/id/OIP.6qUG0g8wwGKNHKxyFdzMowHaJ5?w=202&h=267&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro16.setDisponibilidad(false);
+	        libro16.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro16);
 
 	        // Libro 17
@@ -272,6 +287,7 @@ public class Inicio {
 	        libro17.setTitulo("El general en su laberinto");
 	        libro17.setPortada("https://th.bing.com/th/id/OIP.4HLvNuxunISCKS8Ft7Z2lQHaJl?w=202&h=256&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro17.setDisponibilidad(true);
+	        libro17.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro17);
 
 	        // Libro 18
@@ -283,6 +299,7 @@ public class Inicio {
 	        libro18.setTitulo("Los pilares de la Tierra");
 	        libro18.setPortada("https://th.bing.com/th/id/OIP.8qXK8XlI8GrpBQRR6KnkYgHaKS?w=202&h=279&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro18.setDisponibilidad(false);
+	        libro18.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro18);
 
 	        // Libro 19
@@ -294,6 +311,7 @@ public class Inicio {
 	        libro19.setTitulo("La metamorfosis");
 	        libro19.setPortada("https://th.bing.com/th/id/OIP.gQ3hvJtiE3KUns5gs7-i9gHaLM?w=202&h=305&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro19.setDisponibilidad(true);
+	        libro19.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro19);
 
 	        // Libro 20
@@ -305,6 +323,7 @@ public class Inicio {
 	        libro20.setTitulo("Un mundo feliz");
 	        libro20.setPortada("https://th.bing.com/th/id/OIP.EJdcu4BmQOZw1-9mI60TDQHaKL?w=202&h=278&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro20.setDisponibilidad(false);
+	        libro20.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro20);
 
 	        // Libro 21
@@ -316,6 +335,7 @@ public class Inicio {
 	        libro21.setTitulo("Ficciones");
 	        libro21.setPortada("https://th.bing.com/th/id/OIP.fj6d0CQzIvzH6Kb90_W9aQHaJ4?w=202&h=269&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro21.setDisponibilidad(true);
+	        libro21.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro21);
 
 	        // Libro 22
@@ -327,6 +347,7 @@ public class Inicio {
 	        libro22.setTitulo("El guardián entre el centeno");
 	        libro22.setPortada("https://th.bing.com/th/id/OIP.j0GMNw7TNu8qVZjJh9yL_wHaLG?w=202&h=302&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro22.setDisponibilidad(false);
+	        libro22.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro22);
 
 	        // Libro 23
@@ -338,6 +359,7 @@ public class Inicio {
 	        libro23.setTitulo("Las uvas de la ira");
 	        libro23.setPortada("https://th.bing.com/th/id/OIP.Q58BqXJ-sffkbFZVVSlQ8QHaKT?w=202&h=281&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro23.setDisponibilidad(true);
+	        libro23.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro23);
 
 	        // Libro 24
@@ -349,6 +371,7 @@ public class Inicio {
 	        libro24.setTitulo("Madame Bovary");
 	        libro24.setPortada("https://th.bing.com/th/id/OIP.r7cOD0T8qVlo4g4CYbdZvAHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro24.setDisponibilidad(false);
+	        libro24.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro24);
 
 	        // Libro 25
@@ -360,6 +383,7 @@ public class Inicio {
 	        libro25.setTitulo("Estudio en escarlata");
 	        libro25.setPortada("https://th.bing.com/th/id/OIP.AA0C5p3jLdS6Ml8iiXkT4wHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro25.setDisponibilidad(true);
+	        libro25.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro25);
 
 	        // Libro 26
@@ -368,9 +392,10 @@ public class Inicio {
 	        libro26.setDescripcion("La novela explora temas de moralidad, libre albedrío y la naturaleza del mal a través de la historia de Rodion Raskolnikov, un estudiante pobre que comete un asesinato y lidia con las consecuencias.");
 	        libro26.setEditorial("The Russian Messenger");
 	        libro26.setGenero("Novela psicológica");
-	        libro26.setTitulo("Crime and Punishment");
+	        libro26.setTitulo("Crimen y castigo");
 	        libro26.setPortada("https://th.bing.com/th/id/OIP.xubLFZxG2Hf41rdjGzW7XQHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro26.setDisponibilidad(false);
+	        libro26.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro26);
 
 	        // Libro 27
@@ -382,6 +407,7 @@ public class Inicio {
 	        libro27.setTitulo("Siddhartha");
 	        libro27.setPortada("https://th.bing.com/th/id/OIP.CFF0wA45o0IjLDOq0INBOAHaJl?w=202&h=265&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro27.setDisponibilidad(true);
+	        libro27.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro27);
 
 	        // Libro 28
@@ -393,6 +419,7 @@ public class Inicio {
 	        libro28.setTitulo("El retrato de Dorian Gray");
 	        libro28.setPortada("https://th.bing.com/th/id/OIP.U11gT9V2F0l6kGZouuOvhgHaIu?w=202&h=236&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro28.setDisponibilidad(false);
+	        libro28.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro28);
 
 	        // Libro 29
@@ -404,6 +431,7 @@ public class Inicio {
 	        libro29.setTitulo("El marino que perdió la gracia del mar");
 	        libro29.setPortada("https://th.bing.com/th/id/OIP.tI_4JotEkRZ3UetJY5xWkAHaKX?w=202&h=286&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro29.setDisponibilidad(true);
+	        libro29.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro29);
 
 	        // Libro 30
@@ -415,7 +443,6 @@ public class Inicio {
 	        libro30.setTitulo("Don Quijote de la Mancha");
 	        libro30.setPortada("https://th.bing.com/th/id/OIP._5EhZjP3xyb5o9W-HEjDyQHaKe?w=202&h=285&c=7&r=0&o=5&dpr=1.3&pid=1.7");
 	        libro30.setDisponibilidad(false);
+	        libro30.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro30);
-	    }
-
-}
+}}
