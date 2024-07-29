@@ -79,4 +79,19 @@ public class PrestamoService {
     public List<Prestamo> getPrestamosActivos() {
         return gPrestamos.getPrestamosActivos();
     }
+    
+    @POST
+    @Path("/devolver/{id}")
+    @Produces("application/json")
+    public Response devolverPrestamo(@PathParam("id") int id) {
+        try {
+            gPrestamos.returnPrestamo(id);
+            return Response.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(503).entity(new Respuesta(Respuesta.ERROR, "Error al procesar devolución")).build();
+        }
+    }
+    
+    
 }
