@@ -1,66 +1,24 @@
-@charset "ISO-8859-1";
-/* Estilos generales para Login y SignUp */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background: url(images/background.jpg) no-repeat center center fixed;
-    background-size: cover;
-}
+/* Añadir estas clases al final de register.css o donde corresponda */
 
-.LoginBox, .SignUpBox {
-    width: 400px;
-    margin: 100px auto;
-    padding: 30px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.8);
+.message-box {
     text-align: center;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    color: #4C489D; /* Color que resalte sobre el fondo */
 }
 
-form {
-    margin-top: 20px;
-}
-
-.form-group {
+.message-box h2 {
+    color: #4C489D;
     margin-bottom: 20px;
 }
 
-h2 {
-    margin-bottom: 20px;
-}
-
-.form-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-h\:inputText, h\:inputSecret {
-    width: calc(100% - 22px);
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-.submit-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-.submit-btn:hover {
-    background-color: #0056b3;
+.message-box p {
+    color: #4C489D;
+    margin-bottom: 15px;
 }
 
 .sign-up-link {
-    display: block;
-    margin-top: 10px;
-    color: #007bff;
+    color: #4C489D;
+    font-weight: bold;
     text-decoration: none;
 }
 
@@ -68,19 +26,33 @@ h\:inputText, h\:inputSecret {
     text-decoration: underline;
 }
 
-
-.submit-btn-link {
+.message-btn {
+    background: #fff;
+    font-size: 14px;
+    padding: 16px 20px;
+    border-radius: 26px;
+    border: 1px solid #D4D3E8;
+    text-transform: uppercase;
+    font-weight: 700;
     display: inline-block;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 3px;
+    width: auto;
+    color: #4C489D;
+    box-shadow: 0px 2px 2px #5C5696;
     cursor: pointer;
+    transition: .2s;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
 }
 
-.submit-btn-link:hover {
-    background-color: #0056b3;
+.message-btn:active,
+.message-btn:focus,
+.message-btn:hover {
+    border-color: #6A679E;
+    outline: none;
+    text-decoration: none;
+}
+
+.message-btn:hover {
+    background-color: #f0f0f0;
 }

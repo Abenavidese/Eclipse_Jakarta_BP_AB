@@ -6,32 +6,56 @@
 
 <h:head>
     <title>Login</title>
-    <link href="css/styless.css" type="text/css" rel="stylesheet"/>
+    <link href="css/loginstyless.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
 </h:head>
 
 <h:body>
-    <div class="LoginBox">
-        <img src="images/UserIcon.png" class="user" alt="User icon" />
-        <h2>Login</h2>
-        <h:form id="loginForm">
-            <h:messages globalOnly="true" style="color: red;" />
-            <div class="form-group">
-                <h:outputLabel for="username" value="Username:" styleClass="form-label" />
-                <h:inputText id="username" value="#{loginBean.username}" required="true" requiredMessage="Username is required" />
-                <h:message for="username" style="color: red;" />
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <h:form class="login">
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <h:inputText id="username" value="#{loginBean.username}" 
+                                     class="login__input" 
+                                     placeholder="Username / Email" 
+                                     required="true" 
+                                     requiredMessage="Username is required" />
+                        <h:message for="username" style="color: red;" />
+                    </div>
+                    
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <h:inputSecret id="password" value="#{loginBean.password}" 
+                                       class="login__input" 
+                                       placeholder="Password" 
+                                       required="true" 
+                                       requiredMessage="Password is required" />
+                        <h:message for="password" style="color: red;" />
+                    </div>
+                    
+                    <h:commandButton styleClass="button login__submit" value="Log In Now" action="#{loginBean.login}">
+                        <span class="button__text">Log In Now</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </h:commandButton>               
+                </h:form>
+
+                <div class="register-link">
+                    <h3 class="register-text">¿No tienes cuenta? Regístrate aquí</h3>
+                    <h:outputLink value="signup.xhtml" styleClass="register__link">
+                        <i class="fas fa-chevron-right"></i>
+                    </h:outputLink>
+                </div>
+
             </div>
-            
-            <div class="form-group">
-                <h:outputLabel for="password" value="Password:" styleClass="form-label" />
-                <h:inputSecret id="password" value="#{loginBean.password}" required="true" requiredMessage="Password is required" />
-                <h:message for="password" style="color: red;" />
-            </div>
-            
-            <h:commandButton styleClass="submit-btn" value="Login" action="#{loginBean.login}" />
-        </h:form>
-        
-        <h:outputLink value="signup.xhtml" styleClass="sign-up-link">¿No tienes cuenta? Regístrate aquí</h:outputLink>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>     
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>      
+        </div>
     </div>
 </h:body>
-
 </html>

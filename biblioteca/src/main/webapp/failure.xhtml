@@ -6,16 +6,32 @@
 
 <h:head>
     <title>Login Failed</title>
-    <link href="css/styless.css" type="text/css" rel="stylesheet"/>
+    <link href="css/failure.css" type="text/css" rel="stylesheet"/>
 </h:head>
 
 <h:body>
-    <div class="LoginBox">
-        <h2>Lo siento, no hemos podido encontrar tu cuenta :c</h2>
-        <p>Usuario o contraseña inválidos. Por favor, intenta de nuevo.</p>
-        <p>Si aún no posees una cuenta, puedes registrarte <h:outputLink value="signup.xhtml" styleClass="sign-up-link">aquí</h:outputLink>.</p>
-        <p>Si crees que esto es un error, contacta a <a href="mailto:libraryups@support.com">libraryups@support.com</a>.</p>
-        <h:link value="Volver al login" outcome="login.xhtml" styleClass="submit-btn-link"/>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <div class="message-box">
+                    <h2>Lo siento, no hemos podido encontrar tu cuenta :c</h2>
+                    <p>Usuario o contraseña inválidos. Por favor, intenta de nuevo.</p>
+                    <p>Si aún no posees una cuenta, puedes registrarte 
+                        <h:outputLink value="signup.xhtml" styleClass="sign-up-link">aquí</h:outputLink>.
+                    </p>
+                    <p>Si crees que esto es un error, contacta a 
+                        <a href="mailto:libraryups@support.com">libraryups@support.com</a>.
+                    </p>
+                    <h:link value="Volver al login" outcome="login.xhtml" styleClass="button message-btn"/>
+                </div>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>     
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>      
+        </div>
     </div>
 </h:body>
 
