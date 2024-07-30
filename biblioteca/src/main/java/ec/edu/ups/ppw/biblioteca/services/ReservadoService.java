@@ -1,6 +1,9 @@
 package ec.edu.ups.ppw.biblioteca.services;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import ec.edu.ups.ppw.biblioteca.Reservado;
 import ec.edu.ups.ppw.biblioteca.model.GestionReserva;
 import jakarta.inject.Inject;
@@ -11,13 +14,17 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.SecurityContext;
 
 /**
  * Servicio RESTful para gestionar reservas.
  * Proporciona endpoints para crear, listar y cancelar reservas.
  */
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Path("/reservas")
 public class ReservadoService {
 
@@ -98,6 +105,16 @@ public class ReservadoService {
     public List<Reservado> getReservasActivas() {
         return gReservas.getReservasActivas();
     }
+    
+    
+    @GET
+    @Path("/activas")
+    @Produces("application/json")
+    public List<Reservado> getReservasActivas(@Context SecurityContext securityContext) {
+        String username = securityContext.getUserPrincipal().getName();
+        return gReservas.getReservasActivasDelUsuario(username);
+    }
+
 
     /**
      * Cancela una reserva.
