@@ -1,6 +1,8 @@
 package ec.edu.ups.ppw.biblioteca.model;
 
 import java.util.List;
+
+import ec.edu.ups.ppw.biblioteca.Libros;
 import ec.edu.ups.ppw.biblioteca.Reservado;
 import ec.edu.ups.ppw.biblioteca.dao.ReservadoDAO;
 import jakarta.ejb.Stateless;
@@ -68,6 +70,7 @@ public class GestionReserva {
         daoReserva.update(reserva);
     }
 
+
     /**
      * Elimina una reserva por su ID.
      * @param id El ID de la reserva a eliminar.
@@ -81,6 +84,14 @@ public class GestionReserva {
             daoReserva.delete(id);
         }
     }
+    
+    
+    
+    public List<Reservado> getReservasActivasDelUsuario(String username) {
+        return daoReserva.getReservasActivasPorUsuario(username);
+    }
+
+
     /**
      * Marca una reserva como cancelada y actualiza la disponibilidad del libro.
      * @param id El ID de la reserva a cancelar.
@@ -91,12 +102,15 @@ public class GestionReserva {
         if (reserva == null) {
             throw new Exception("Reserva no existe");
         }
-        reserva.setDevuelto(true); // Asumiendo que hay un campo de estado para las reservas
+        reserva.setDevuelto(true); // Marcar la reserva como cancelada
         daoReserva.update(reserva);
 
-        // Actualizar la disponibilidad del libro
-        reserva.getLibro().setDisponibilidad(true);
-        daoReserva.update(reserva.getLibro());
+        // Actualizar la disponibilidad del libro y el estado de reserva
+        Libros libro = reserva.getLibro();
+        libro.setDisponibilidad(true); // Marcar el libro como disponible
+        libro.setReservado(false); // Marcar el libro como no reservado
+        daoReserva.update(libro);
     }
+
 
 }

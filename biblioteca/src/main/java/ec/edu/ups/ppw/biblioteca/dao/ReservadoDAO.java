@@ -57,10 +57,12 @@ public class ReservadoDAO {
             throw new Exception("No se puede eliminar, reserva con id " + id + " no encontrada.");
         }
     }
+    
+    
     public void marcarComoDevuelto(int id) throws Exception {
         Reservado reservado = this.read(id);
         if (reservado == null) {
-            throw new Exception("Prestamo no existe");
+            throw new Exception("Reserva no existe");
         }
         reservado.setDevuelto(true);
         em.merge(reservado);
@@ -89,6 +91,18 @@ public class ReservadoDAO {
         Query query = em.createQuery(jpql, Reservado.class);
         return query.getResultList();
     }
+    
+    
+    
+    public List<Reservado> getReservasActivasPorUsuario(String username) {
+        String jpql = "SELECT r FROM Reservado r WHERE r.devuelto = false AND r.usuario.username = :username";
+        TypedQuery<Reservado> query = em.createQuery(jpql, Reservado.class);
+        query.setParameter("username", username);
+        return query.getResultList();
+    }
+
+
+
 
 
     /**
