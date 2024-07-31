@@ -66,12 +66,14 @@ public class GestionLibro {
      * @param id El ID del libro a eliminar.
      * @throws Exception Si el libro no se encuentra.
      */
-    public void deleteLibro(int id) throws Exception {
-        Libros libro = daoLibro.read(id);
-        if (libro == null) {
-            throw new Exception("Libro no existe");
-        } else {
-            daoLibro.delete(id);
-        }
-    }
+	public void deleteLibro(int id) throws Exception{
+		Libros cliente = daoLibro.read(id);
+		if(cliente == null) {				
+			throw new Exception("Cliente no existe");
+		}
+		else {
+			daoLibro.delete(id);
+		}
+		
+	}
 }

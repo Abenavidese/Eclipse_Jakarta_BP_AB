@@ -66,17 +66,18 @@ public class LibroService {
      * @param id El ID del libro a eliminar.
      * @return Una respuesta HTTP con el ID del libro eliminado o un mensaje de error.
      */
-    @DELETE
-    @Produces("application/json")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response delete(@QueryParam("id") int id) {
-        try {
-            gLibros.deleteLibro(id);
-            return Response.ok(id).build();
-        } catch (Exception e) {
-            return Response.status(503).entity(new Respuesta(Respuesta.ERROR, "Error en BD")).build();
-        }
-    }
+	@DELETE
+	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response delete(@QueryParam("id") int id) {
+		try {
+			gLibros.deleteLibro(id);
+			return Response.ok(id).build();
+			
+		} catch (Exception e) {
+			return Response.status(503).entity(new Respuesta(Respuesta.ERROR, "Error en BD")).build();
+		}	
+	}
 
     /**
      * Obtiene un libro por su ID.

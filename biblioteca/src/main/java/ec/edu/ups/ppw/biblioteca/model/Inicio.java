@@ -73,31 +73,7 @@ public class Inicio {
 	        usuarioUser.setRoles(rolesUser);
 	        daoUsuario.insert(usuarioUser);
 
-	        // Libro 1
-	        Libros libro1 = new Libros();
-	        libro1.setAutor("Gabriel García Márquez");
-	        libro1.setDescripcion("Cien años de soledad es una novela que cuenta la historia de la familia Buendía a lo largo de varias generaciones en el ficticio pueblo de Macondo.");
-	        libro1.setEditorial("Editorial Sudamericana");
-	        libro1.setGenero("Realismo mágico");
-	        libro1.setTitulo("Cien años de soledad");
-	        libro1.setPortada("https://th.bing.com/th/id/OIP.i1l4x9xyOWqAe0fHkss9NwHaLQ?w=202&h=308&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro1.setDisponibilidad(true);
-	        daoLibro.insert(libro1);
-	        
-	        
-	        // Crear préstamo
-	        Prestamo prestamo = new Prestamo();
-	        prestamo.setUsuario(usuarioAdmin);
-	        prestamo.setLibro(libro1);
-	        Date fechaPrestamo = DateGenerator.createDate(2023, 7, 18);
-	        Date fechaDevolucion = DateGenerator.createDate(2023, 7, 25);
-	        prestamo.setFechaPrestamo(fechaPrestamo);
-	        prestamo.setFechaDevolucion(fechaDevolucion);
 
-	        // Insertar préstamo
-	        daoPrestamo.insert(prestamo);
-
-	        System.out.println("Préstamo creado: " + prestamo);
 	     // Libro 2
 	        Libros libro2 = new Libros();
 	        libro2.setAutor("J. K. Rowling");
@@ -117,7 +93,7 @@ public class Inicio {
 	        libro3.setEditorial("Allen & Unwin");
 	        libro3.setGenero("Fantasía");
 	        libro3.setTitulo("El hobbit");
-	        libro3.setPortada("https://th.bing.com/th/id/OIP.Oj2WXQ_tBXGSZdAKdHTR9gHaJl?w=202&h=263&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+	        libro3.setPortada("https://th.bing.com/th/id/R.f89526de5ee0fa74d32f2964234bd1fa?rik=sG1dlqxlGPVAJg&pid=ImgRaw&r=0");
 	        libro3.setDisponibilidad(true);
 	        libro3.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro3);
@@ -129,7 +105,7 @@ public class Inicio {
 	        libro4.setEditorial("Secker & Warburg");
 	        libro4.setGenero("Distopía");
 	        libro4.setTitulo("1984");
-	        libro4.setPortada("https://th.bing.com/th/id/OIP.U9ur5_9eNAN-HEPjx5u8PAHaLH?w=202&h=306&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+	        libro4.setPortada("https://th.bing.com/th/id/OIP.8weipgxeZASSI2nt9APKNAAAAA?rs=1&pid=ImgDetMain");
 	        libro4.setDisponibilidad(false);
 	        libro4.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro4);
@@ -141,7 +117,7 @@ public class Inicio {
 	        libro5.setEditorial("T. Egerton, Whitehall");
 	        libro5.setGenero("Romance");
 	        libro5.setTitulo("Orgullo y prejuicio");
-	        libro5.setPortada("https://th.bing.com/th/id/OIP.bf93-5WQMaWUDfqKc8QqZgHaKI?w=202&h=275&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+	        libro5.setPortada("https://imagessl2.casadellibro.com/a/l/t0/82/9788415618782.jpg");
 	        libro5.setDisponibilidad(true);
 	        libro5.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro5);
@@ -153,7 +129,7 @@ public class Inicio {
 	        libro6.setEditorial("Charles Scribner's Sons");
 	        libro6.setGenero("Novela");
 	        libro6.setTitulo("El gran Gatsby");
-	        libro6.setPortada("https://th.bing.com/th/id/OIP.97jP8tZkHlOwI2aQ4J1aWgHaK3?w=202&h=296&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+	        libro6.setPortada("https://th.bing.com/th/id/OIP.XctOmmqwwc0T2c7HaXpRYAAAAA?rs=1&pid=ImgDetMain");
 	        libro6.setDisponibilidad(false);
 	        libro6.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro6);
@@ -165,7 +141,7 @@ public class Inicio {
 	        libro7.setEditorial("Knopf");
 	        libro7.setGenero("Novela histórica");
 	        libro7.setTitulo("La ladrona de libros");
-	        libro7.setPortada("https://th.bing.com/th/id/OIP.HuXZ1aCkGg0-JnoQ4Q9lGgHaK-?w=202&h=299&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+	        libro7.setPortada("https://th.bing.com/th/id/R.e0bdb5793f0da56b184afad565ae4c6b?rik=087LtVN5lATdww&riu=http%3a%2f%2f2.bp.blogspot.com%2f-TUJHvf7owv4%2fUuoejln66NI%2fAAAAAAAAMjo%2fjwRMsBNEDio%2fs1600%2flas-ladrona-de-libros.jpg&ehk=9NHP0cpqdd3kXxnfuBvgMfPqfsaQGbpsey2yFCegihM%3d&risl=&pid=ImgRaw&r=0");
 	        libro7.setDisponibilidad(true);
 	        libro7.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro7);
@@ -177,7 +153,7 @@ public class Inicio {
 	        libro8.setEditorial("J. B. Lippincott & Co.");
 	        libro8.setGenero("Novela");
 	        libro8.setTitulo("Matar a un ruiseñor");
-	        libro8.setPortada("https://th.bing.com/th/id/OIP.8P-E9mQbFgZiU-SZT5TWWwHaKI?w=202&h=275&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+	        libro8.setPortada("https://th.bing.com/th/id/OIP.-WxgdvenGlqf2dZvYbVeSgHaK1?rs=1&pid=ImgDetMain");
 	        libro8.setDisponibilidad(false);
 	        libro8.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro8);
@@ -189,7 +165,7 @@ public class Inicio {
 	        libro9.setEditorial("The Russian Messenger");
 	        libro9.setGenero("Novela histórica");
 	        libro9.setTitulo("Guerra y paz");
-	        libro9.setPortada("https://th.bing.com/th/id/OIP.xX8kP0eQH-xO-sVP1PBw1gHaN4?w=202&h=358&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+	        libro9.setPortada("https://www.elsotano.com/imagenes_grandes/9788494/978849474582.JPG");
 	        libro9.setDisponibilidad(true);
 	        libro9.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro9);
@@ -201,7 +177,7 @@ public class Inicio {
 	        libro10.setEditorial("Charles Scribner's Sons");
 	        libro10.setGenero("Novela bélica");
 	        libro10.setTitulo("Por quién doblan las campanas");
-	        libro10.setPortada("https://th.bing.com/th/id/OIP.VYDRgS2T0bg4ndfZG6hPHwHaKO?w=202&h=276&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+	        libro10.setPortada("https://th.bing.com/th/id/OIP.C4D3SIbxzbCoFveJzGiXJgHaKm?rs=1&pid=ImgDetMain");
 	        libro10.setDisponibilidad(false);
 	        libro10.setReservado(true); // Establece el estado de reserva
 	        daoLibro.insert(libro10);
@@ -213,236 +189,10 @@ public class Inicio {
 	        libro11.setEditorial("Hogarth Press");
 	        libro11.setGenero("Ficción");
 	        libro11.setTitulo("Mrs Dalloway");
-	        libro11.setPortada("https://th.bing.com/th/id/OIP.SI8wx0-PXjRNO5o5DqRl0gHaKe?w=202&h=286&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+	        libro11.setPortada("https://th.bing.com/th/id/OIP.nnAAzfkU8JMcjnNbvo-v_AHaLG?rs=1&pid=ImgDetMain");
 	        libro11.setDisponibilidad(true);
 	        libro11.setReservado(false); // Establece el estado de reserva
 	        daoLibro.insert(libro11);
 
-	        // Libro 12
-	        Libros libro12 = new Libros();
-	        libro12.setAutor("Emily Brontë");
-	        libro12.setDescripcion("La novela sigue la vida de Heathcliff, un niño adoptado, y su relación con la familia Earnshaw en la salvaje y sombría región de Yorkshire.");
-	        libro12.setEditorial("Thomas Cautley Newby");
-	        libro12.setGenero("Novela gótica");
-	        libro12.setTitulo("Cumbres borrascosas");
-	        libro12.setPortada("https://th.bing.com/th/id/OIP.7EUpSSWxM13rJ4xIVJNCAwHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro12.setDisponibilidad(false);
-	        libro12.setReservado(true); // Establece el estado de reserva
-	        daoLibro.insert(libro12);
-
-	        // Libro 13
-	        Libros libro13 = new Libros();
-	        libro13.setAutor("Albert Camus");
-	        libro13.setDescripcion("La novela explora temas de absurdo, revuelta y la indiferencia de la sociedad ante el sufrimiento humano.");
-	        libro13.setEditorial("Gallimard");
-	        libro13.setGenero("Filosofía");
-	        libro13.setTitulo("El extranjero");
-	        libro13.setPortada("https://th.bing.com/th/id/OIP.61aK-3T_xO4ypKeh4oetOgHaKV?w=202&h=279&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro13.setDisponibilidad(true);
-	        libro13.setReservado(false); // Establece el estado de reserva
-	        daoLibro.insert(libro13);
-
-	        // Libro 14
-	        Libros libro14 = new Libros();
-	        libro14.setAutor("Margaret Atwood");
-	        libro14.setDescripcion("La novela está ambientada en una sociedad totalitaria futurista donde las mujeres son subyugadas y utilizadas para la reproducción.");
-	        libro14.setEditorial("McClelland & Stewart");
-	        libro14.setGenero("Ciencia ficción");
-	        libro14.setTitulo("El cuento de la criada");
-	        libro14.setPortada("https://th.bing.com/th/id/OIP.F2us-JYc9IzKwVlQG6iKbgHaK-?w=202&h=282&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro14.setDisponibilidad(false);
-	        libro14.setReservado(true); // Establece el estado de reserva
-	        daoLibro.insert(libro14);
-
-	        // Libro 15
-	        Libros libro15 = new Libros();
-	        libro15.setAutor("Gabriel García Márquez");
-	        libro15.setDescripcion("La novela sigue la vida de Florentino Ariza y Fermina Daza a lo largo de más de 50 años, explorando temas de amor, pérdida y redención.");
-	        libro15.setEditorial("Editorial Sudamericana");
-	        libro15.setGenero("Realismo mágico");
-	        libro15.setTitulo("El amor en los tiempos del cólera");
-	        libro15.setPortada("https://th.bing.com/th/id/OIP.2o4qVDbBjD6wWbFwVX_MyQHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro15.setDisponibilidad(true);
-	        libro15.setReservado(false); // Establece el estado de reserva
-	        daoLibro.insert(libro15);
-
-	        // Libro 16
-	        Libros libro16 = new Libros();
-	        libro16.setAutor("Haruki Murakami");
-	        libro16.setDescripcion("La novela sigue a Toru Watanabe mientras reflexiona sobre su vida universitaria, amores pasados y la misteriosa muerte de su amigo.");
-	        libro16.setEditorial("Kodansha");
-	        libro16.setGenero("Ficción contemporánea");
-	        libro16.setTitulo("Tokio blues (Norwegian Wood)");
-	        libro16.setPortada("https://th.bing.com/th/id/OIP.6qUG0g8wwGKNHKxyFdzMowHaJ5?w=202&h=267&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro16.setDisponibilidad(false);
-	        libro16.setReservado(true); // Establece el estado de reserva
-	        daoLibro.insert(libro16);
-
-	        // Libro 17
-	        Libros libro17 = new Libros();
-	        libro17.setAutor("Gabriel García Márquez");
-	        libro17.setDescripcion("La novela sigue la vida de Simón Bolívar, el líder militar y político que jugó un papel fundamental en la independencia de varios países sudamericanos.");
-	        libro17.setEditorial("Editorial Sudamericana");
-	        libro17.setGenero("Novela histórica");
-	        libro17.setTitulo("El general en su laberinto");
-	        libro17.setPortada("https://th.bing.com/th/id/OIP.4HLvNuxunISCKS8Ft7Z2lQHaJl?w=202&h=256&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro17.setDisponibilidad(true);
-	        libro17.setReservado(false); // Establece el estado de reserva
-	        daoLibro.insert(libro17);
-
-	        // Libro 18
-	        Libros libro18 = new Libros();
-	        libro18.setAutor("Ken Follett");
-	        libro18.setDescripcion("La novela sigue la construcción de una catedral en la ciudad ficticia de Kingsbridge, Inglaterra, a lo largo de varios siglos.");
-	        libro18.setEditorial("Macmillan Publishers");
-	        libro18.setGenero("Novela histórica");
-	        libro18.setTitulo("Los pilares de la Tierra");
-	        libro18.setPortada("https://th.bing.com/th/id/OIP.8qXK8XlI8GrpBQRR6KnkYgHaKS?w=202&h=279&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro18.setDisponibilidad(false);
-	        libro18.setReservado(true); // Establece el estado de reserva
-	        daoLibro.insert(libro18);
-
-	        // Libro 19
-	        Libros libro19 = new Libros();
-	        libro19.setAutor("Franz Kafka");
-	        libro19.setDescripcion("La novela cuenta la historia de Gregor Samsa, quien se despierta un día transformado en un insecto gigante y enfrenta las reacciones de su familia y la sociedad.");
-	        libro19.setEditorial("Kurt Wolff Verlag");
-	        libro19.setGenero("Ficción existencialista");
-	        libro19.setTitulo("La metamorfosis");
-	        libro19.setPortada("https://th.bing.com/th/id/OIP.gQ3hvJtiE3KUns5gs7-i9gHaLM?w=202&h=305&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro19.setDisponibilidad(true);
-	        libro19.setReservado(false); // Establece el estado de reserva
-	        daoLibro.insert(libro19);
-
-	        // Libro 20
-	        Libros libro20 = new Libros();
-	        libro20.setAutor("Aldous Huxley");
-	        libro20.setDescripcion("La novela presenta una sociedad futurista en la que se controlan todos los aspectos de la vida humana, incluidas las emociones y los pensamientos.");
-	        libro20.setEditorial("Chatto & Windus");
-	        libro20.setGenero("Ciencia ficción");
-	        libro20.setTitulo("Un mundo feliz");
-	        libro20.setPortada("https://th.bing.com/th/id/OIP.EJdcu4BmQOZw1-9mI60TDQHaKL?w=202&h=278&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro20.setDisponibilidad(false);
-	        libro20.setReservado(true); // Establece el estado de reserva
-	        daoLibro.insert(libro20);
-
-	        // Libro 21
-	        Libros libro21 = new Libros();
-	        libro21.setAutor("Jorge Luis Borges");
-	        libro21.setDescripcion("La colección de cuentos explora temas de laberintos, espejos, identidad y realidad.");
-	        libro21.setEditorial("Sur");
-	        libro21.setGenero("Ficción");
-	        libro21.setTitulo("Ficciones");
-	        libro21.setPortada("https://th.bing.com/th/id/OIP.fj6d0CQzIvzH6Kb90_W9aQHaJ4?w=202&h=269&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro21.setDisponibilidad(true);
-	        libro21.setReservado(false); // Establece el estado de reserva
-	        daoLibro.insert(libro21);
-
-	        // Libro 22
-	        Libros libro22 = new Libros();
-	        libro22.setAutor("J. D. Salinger");
-	        libro22.setDescripcion("La novela sigue a Holden Caulfield, un joven rebelde que lucha por encontrar su lugar en el mundo mientras lidia con la hipocresía y la falsedad de la sociedad adulta.");
-	        libro22.setEditorial("Little, Brown and Company");
-	        libro22.setGenero("Novela de iniciación");
-	        libro22.setTitulo("El guardián entre el centeno");
-	        libro22.setPortada("https://th.bing.com/th/id/OIP.j0GMNw7TNu8qVZjJh9yL_wHaLG?w=202&h=302&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro22.setDisponibilidad(false);
-	        libro22.setReservado(true); // Establece el estado de reserva
-	        daoLibro.insert(libro22);
-
-	        // Libro 23
-	        Libros libro23 = new Libros();
-	        libro23.setAutor("John Steinbeck");
-	        libro23.setDescripcion("La novela sigue la vida de los trabajadores migrantes y su lucha por la supervivencia durante la Gran Depresión en los Estados Unidos.");
-	        libro23.setEditorial("The Viking Press");
-	        libro23.setGenero("Novela social");
-	        libro23.setTitulo("Las uvas de la ira");
-	        libro23.setPortada("https://th.bing.com/th/id/OIP.Q58BqXJ-sffkbFZVVSlQ8QHaKT?w=202&h=281&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro23.setDisponibilidad(true);
-	        libro23.setReservado(false); // Establece el estado de reserva
-	        daoLibro.insert(libro23);
-
-	        // Libro 24
-	        Libros libro24 = new Libros();
-	        libro24.setAutor("Gustave Flaubert");
-	        libro24.setDescripcion("La novela sigue la vida de Emma Bovary, una mujer atrapada en un matrimonio insatisfactorio y en busca de pasión y romance.");
-	        libro24.setEditorial("Revue de Paris");
-	        libro24.setGenero("Novela realista");
-	        libro24.setTitulo("Madame Bovary");
-	        libro24.setPortada("https://th.bing.com/th/id/OIP.r7cOD0T8qVlo4g4CYbdZvAHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro24.setDisponibilidad(false);
-	        libro24.setReservado(true); // Establece el estado de reserva
-	        daoLibro.insert(libro24);
-
-	        // Libro 25
-	        Libros libro25 = new Libros();
-	        libro25.setAutor("Arthur Conan Doyle");
-	        libro25.setDescripcion("La novela sigue las investigaciones del detective Sherlock Holmes y su amigo el Dr. Watson mientras resuelven misterios en el Londres victoriano.");
-	        libro25.setEditorial("George Newnes Ltd");
-	        libro25.setGenero("Novela detectivesca");
-	        libro25.setTitulo("Estudio en escarlata");
-	        libro25.setPortada("https://th.bing.com/th/id/OIP.AA0C5p3jLdS6Ml8iiXkT4wHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro25.setDisponibilidad(true);
-	        libro25.setReservado(false); // Establece el estado de reserva
-	        daoLibro.insert(libro25);
-
-	        // Libro 26
-	        Libros libro26 = new Libros();
-	        libro26.setAutor("Fyodor Dostoevsky");
-	        libro26.setDescripcion("La novela explora temas de moralidad, libre albedrío y la naturaleza del mal a través de la historia de Rodion Raskolnikov, un estudiante pobre que comete un asesinato y lidia con las consecuencias.");
-	        libro26.setEditorial("The Russian Messenger");
-	        libro26.setGenero("Novela psicológica");
-	        libro26.setTitulo("Crimen y castigo");
-	        libro26.setPortada("https://th.bing.com/th/id/OIP.xubLFZxG2Hf41rdjGzW7XQHaLH?w=202&h=303&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro26.setDisponibilidad(false);
-	        libro26.setReservado(true); // Establece el estado de reserva
-	        daoLibro.insert(libro26);
-
-	        // Libro 27
-	        Libros libro27 = new Libros();
-	        libro27.setAutor("Hermann Hesse");
-	        libro27.setDescripcion("La novela sigue a Siddhartha mientras busca la iluminación espiritual y recorre un camino de auto-descubrimiento en la India.");
-	        libro27.setEditorial("Suhrkamp Verlag");
-	        libro27.setGenero("Novela de aprendizaje");
-	        libro27.setTitulo("Siddhartha");
-	        libro27.setPortada("https://th.bing.com/th/id/OIP.CFF0wA45o0IjLDOq0INBOAHaJl?w=202&h=265&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro27.setDisponibilidad(true);
-	        libro27.setReservado(false); // Establece el estado de reserva
-	        daoLibro.insert(libro27);
-
-	        // Libro 28
-	        Libros libro28 = new Libros();
-	        libro28.setAutor("Oscar Wilde");
-	        libro28.setDescripcion("La novela es una sátira social que critica la superficialidad de la sociedad victoriana y explora temas de belleza, vanidad y moralidad.");
-	        libro28.setEditorial("Lippincott's Monthly Magazine");
-	        libro28.setGenero("Ficción filosófica");
-	        libro28.setTitulo("El retrato de Dorian Gray");
-	        libro28.setPortada("https://th.bing.com/th/id/OIP.U11gT9V2F0l6kGZouuOvhgHaIu?w=202&h=236&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro28.setDisponibilidad(false);
-	        libro28.setReservado(true); // Establece el estado de reserva
-	        daoLibro.insert(libro28);
-
-	        // Libro 29
-	        Libros libro29 = new Libros();
-	        libro29.setAutor("Yukio Mishima");
-	        libro29.setDescripcion("La novela sigue la vida de Isao, un joven que se une a una organización militarista en Japón y se enfrenta a cuestiones de identidad, tradición y modernidad.");
-	        libro29.setEditorial("Shinchosha");
-	        libro29.setGenero("Ficción política");
-	        libro29.setTitulo("El marino que perdió la gracia del mar");
-	        libro29.setPortada("https://th.bing.com/th/id/OIP.tI_4JotEkRZ3UetJY5xWkAHaKX?w=202&h=286&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro29.setDisponibilidad(true);
-	        libro29.setReservado(false); // Establece el estado de reserva
-	        daoLibro.insert(libro29);
-
-	        // Libro 30
-	        Libros libro30 = new Libros();
-	        libro30.setAutor("Miguel de Cervantes");
-	        libro30.setDescripcion("La novela sigue las aventuras de Don Quijote, quien se embarca en una serie de aventuras en busca de justicia y honor.");
-	        libro30.setEditorial("Juan de la Cuesta");
-	        libro30.setGenero("Novela de caballerías");
-	        libro30.setTitulo("Don Quijote de la Mancha");
-	        libro30.setPortada("https://th.bing.com/th/id/OIP._5EhZjP3xyb5o9W-HEjDyQHaKe?w=202&h=285&c=7&r=0&o=5&dpr=1.3&pid=1.7");
-	        libro30.setDisponibilidad(false);
-	        libro30.setReservado(true); // Establece el estado de reserva
-	        daoLibro.insert(libro30);
+	      
 }}

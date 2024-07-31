@@ -37,15 +37,16 @@ public class LibroDAO {
      * @param id El ID del libro a eliminar.
      * @throws Exception Si el libro no se encuentra.
      */
-    public void delete(int id) throws Exception {
-        Libros libro = this.read(id);
-        if (libro != null) {
-            em.remove(libro);
-            System.out.println("Eliminado");
-        } else {
-            throw new Exception("No se puede eliminar el libro. Libro con id " + id + " no encontrado.");
-        }
-    }
+	public void delete(int id) throws Exception{
+	    Libros libros = this.read(id);
+	    if (libros != null) {
+	        em.remove(libros);
+	        System.out.println("Eliminado");
+	    } else {
+	        throw new Exception("No se puede eliminar el libro. Libro con id " + id + " no encontrado.");
+	    }
+	}
+	
 
     /**
      * Lee un libro de la base de datos por su ID.
