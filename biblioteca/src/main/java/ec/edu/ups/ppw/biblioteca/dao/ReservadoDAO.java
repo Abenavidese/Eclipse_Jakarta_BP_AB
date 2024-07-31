@@ -2,7 +2,6 @@ package ec.edu.ups.ppw.biblioteca.dao;
 
 import java.util.List;
 import ec.edu.ups.ppw.biblioteca.Libros;
-import ec.edu.ups.ppw.biblioteca.Prestamo;
 import ec.edu.ups.ppw.biblioteca.Reservado;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;

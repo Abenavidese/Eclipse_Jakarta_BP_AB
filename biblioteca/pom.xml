@@ -301,6 +301,11 @@
 
 
 
+		<dependency>
+			<groupId>ec.edu.ups.ppw</groupId>
+			<artifactId>Prueba</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
     </dependencies>
 
     <build>

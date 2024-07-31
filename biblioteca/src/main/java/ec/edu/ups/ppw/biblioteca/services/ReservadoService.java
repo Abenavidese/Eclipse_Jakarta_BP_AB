@@ -107,13 +107,7 @@ public class ReservadoService {
     }
     
     
-    @GET
-    @Path("/activas")
-    @Produces("application/json")
-    public List<Reservado> getReservasActivas(@Context SecurityContext securityContext) {
-        String username = securityContext.getUserPrincipal().getName();
-        return gReservas.getReservasActivasDelUsuario(username);
-    }
+  
 
 
     /**
