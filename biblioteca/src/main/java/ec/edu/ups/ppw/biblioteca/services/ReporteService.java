@@ -24,37 +24,22 @@ public class ReporteService {
     @Inject
     private GestionReporte gestionReporte;
 
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
     @GET
-    @Path("/libros/{startDate}/{endDate}")
+    @Path("/cantidad-prestamos-por-usuario")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getLibrosMasSolicitados(@PathParam("startDate") String startDate, @PathParam("endDate") String endDate) {
-        try {
-            Date start = dateFormat.parse(startDate);
-            Date end = dateFormat.parse(endDate);
-            List<Libros> librosMasSolicitados = gestionReporte.getLibrosMasSolicitados(start, end);
-            return Response.ok(librosMasSolicitados).build();
-        } catch (ParseException e) {
-            return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Formato de fecha incorrecto. Use yyyy-MM-dd.")
-                    .build();
-        }
+    public Response getCantidadPrestamosPorUsuario() {
+        List<Object[]> result = gestionReporte.getCantidadPrestamosPorUsuario();
+        return Response.ok(result).build();
+    }
+    
+    
+    
+    @GET
+    @Path("/libros-populares")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getLibrosMasPopulares() {
+        List<Libros> librosMasPopulares = gestionReporte.getLibrosMasPopulares();
+        return Response.ok(librosMasPopulares).build();
     }
 
-    @GET
-    @Path("/usuarios/{startDate}/{endDate}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getUsuariosMasActivos(@PathParam("startDate") String startDate, @PathParam("endDate") String endDate) {
-        try {
-            Date start = dateFormat.parse(startDate);
-            Date end = dateFormat.parse(endDate);
-            List<Usuario> usuariosMasActivos = gestionReporte.getUsuariosMasActivos(start, end);
-            return Response.ok(usuariosMasActivos).build();
-        } catch (ParseException e) {
-            return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Formato de fecha incorrecto. Use yyyy-MM-dd.")
-                    .build();
-        }
-    }
 }

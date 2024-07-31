@@ -19,31 +19,18 @@ public class ReporteDAO {
     @PersistenceContext
     private EntityManager em;
 
-    /**
-     * Encuentra los libros más solicitados en un rango de fechas.
-     * @param startDate La fecha de inicio del rango.
-     * @param endDate La fecha de fin del rango.
-     * @return Una lista de los libros más solicitados.
-     */
-    public List<Libros> findLibrosMasSolicitados(Date startDate, Date endDate) {
-        String jpql = "SELECT p.libro FROM Prestamo p WHERE p.fechaPrestamo BETWEEN :startDate AND :endDate GROUP BY p.libro ORDER BY COUNT(p) DESC";
+ // Método en ReporteDAO para obtener la cantidad de préstamos por usuario
+    public List<Object[]> findCantidadPrestamosPorUsuario() {
+        String jpql = "SELECT p.usuario.username, COUNT(p) FROM Prestamo p GROUP BY p.usuario.username ORDER BY COUNT(p) DESC";
+        return em.createQuery(jpql, Object[].class).getResultList();
+    }
+    
+    
+    public List<Libros> findLibrosMasPopulares() {
+        String jpql = "SELECT p.libro, COUNT(p) AS prestamos FROM Prestamo p GROUP BY p.libro ORDER BY prestamos DESC";
         TypedQuery<Libros> query = em.createQuery(jpql, Libros.class);
-        query.setParameter("startDate", startDate);
-        query.setParameter("endDate", endDate);
         return query.getResultList();
     }
 
-    /**
-     * Encuentra los usuarios más activos en un rango de fechas.
-     * @param startDate La fecha de inicio del rango.
-     * @param endDate La fecha de fin del rango.
-     * @return Una lista de los usuarios más activos.
-     */
-    public List<Usuario> findUsuariosMasActivos(Date startDate, Date endDate) {
-        String jpql = "SELECT p.usuario FROM Prestamo p WHERE p.fechaPrestamo BETWEEN :startDate AND :endDate GROUP BY p.usuario ORDER BY COUNT(p) DESC";
-        TypedQuery<Usuario> query = em.createQuery(jpql, Usuario.class);
-        query.setParameter("startDate", startDate);
-        query.setParameter("endDate", endDate);
-        return query.getResultList();
-    }
+
 }
